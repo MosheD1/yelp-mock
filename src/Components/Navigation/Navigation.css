@@ -1,0 +1,27 @@
+nav {
+    position: sticky;
+    width: 100vw;
+    top: 0;
+    z-index: 30;
+    letter-spacing: 3px;;
+    font-size: 1.5rem;
+    padding: 25px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    background: #2f363d;
+}
+
+nav a {
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    color:  rgb(255, 92, 92);
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+a:hover,
+a:focus {
+    color: whitesmoke;
+    border-bottom: 2px solid;
+}

@@ -1,0 +1,38 @@
+.bpage {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bpage > div {
+    width: 55vw;
+    padding: 1rem;
+}
+
+.bdetails {
+    border-bottom: 2px solid #eeeeef;
+}
+
+.bimg-container {
+    width: 100%;
+    height: 50vh;
+}
+
+.bpage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.bpage h1 {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 4px;
+}
+
+.description {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 4rem;
+}

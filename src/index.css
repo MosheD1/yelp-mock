@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Merriweather&family=Sansita+Swashed&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: "Sansita Swashed", "IBM Plex Serif", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: white;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  background: #f43939;
+  color: whitesmoke;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 2px;
+  height: 2.5rem;
+  box-shadow: 0 0.3rem 0.3rem rgba(121, 121, 121, 0.65);
+  margin-bottom: 1rem;
+  width: 17%;
+}
+
+button:hover {
+  filter: brightness(150%);
+}
+
+p {
+  font-family: 'Open Sans',sans-serif;
+}
+
+.tc {
+  text-align: center;
 }
