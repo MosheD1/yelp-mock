@@ -2,11 +2,17 @@ import React from 'react';
 import Navigation from './Components/Navigation/Navigation';
 import CardList from './Components/CardList/CardList';
 import BussinessPage from './Components/BussinessPage/BussinessPage';
-import ReviewPage from './Components/ReviewPage/ReviewPage'
+import ReviewPage from './Components/ReviewPage/ReviewPage';
+import Signin from './Components/Signin/Signin';
+import Register from './Components/Register/Register';
+import Business from './Components/Business/Business';
 
 const initialState = {
-  route: 'home',
+  route: 'register',
   subRoute: 'Review',
+  user: {
+    name: ''
+  },
   bussiness: {
     name: '',
     intro: '',
@@ -19,6 +25,10 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = initialState;
+  }
+
+  onRouteChange = (name) => {
+    this.setState({route: name});
   }
 
   onSubRoueChange = (name) => {
@@ -51,15 +61,20 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navigation route={'home'} />
+        <Navigation route={this.state.route} />
         {
-          this.state.subRoute === 'main'
-            ? <CardList bussinesList={this.state.bussinessList} getBussiness={this.onBussinessCardClick}/>
-            : (
-              this.state.subRoute === 'Review'
-              ? <ReviewPage onSubRoueChange={this.onSubRoueChange} />
-              : <BussinessPage onSubRoueChange={this.onSubRoueChange} bussiness={this.state.bussiness}/>
-            )
+          this.state.route === 'home'
+            ? (this.state.subRoute === 'main'
+              ? <CardList bussinesList={this.state.bussinessList} getBussiness={this.onBussinessCardClick}/>
+              : (
+                this.state.subRoute === 'Review'
+                ? <ReviewPage onSubRoueChange={this.onSubRoueChange} />
+                : <BussinessPage onSubRoueChange={this.onSubRoueChange} bussiness={this.state.bussiness}/>
+              ))
+            :(this.state.route === 'signin'
+                ? <Signin onRouteChange={this.onRouteChange}/>
+                : <Business onRouteChange={this.onRouteChange} />
+            )  
         }
       </div>
     );
