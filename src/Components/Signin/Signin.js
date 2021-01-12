@@ -26,7 +26,7 @@ class Signin extends React.Component {
         return (
             <div className='form-page'>
                 <form className="form" autoComplete='off'>
-                    <h1>Register</h1>
+                    <h1>Sign In</h1>
                     <fieldset>
                         <label htmlFor='name'>Name:</label>
                         <input onChange={this.onNameChange} id='name' name='name' type='text'/>

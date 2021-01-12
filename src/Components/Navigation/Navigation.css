@@ -20,8 +20,7 @@ nav a {
     font-weight: bold;
 }
 
-a:hover,
-a:focus {
+a:hover{
     color: whitesmoke;
     border-bottom: 2px solid;
 }

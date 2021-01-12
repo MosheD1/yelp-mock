@@ -339,7 +339,7 @@ class Business extends React.Component {
                             <label htmlFor='description'>Description</label>
                             <textarea onchange={this.onDescriptionChange} id='description' placeholder='This a place where you can go out and have fun...'></textarea>
                     </fieldset>
-                    <button>Signin</button>
+                    <button onClick={() => this.props.onSubRoueChange('main')}>Add</button>
                 </form>
             </div>
         );
