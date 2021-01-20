@@ -1,7 +1,7 @@
 import React from 'react';
 import './Comment.css';
 
-const Comment = ({user, comment}) => {
+const Comment = ({user, review}) => {
     return (
         <div className='comment'>
             <p className='name'>{user}</p>
@@ -12,7 +12,7 @@ const Comment = ({user, comment}) => {
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
             </div>
-            <p className='content-body'>{comment}</p>
+            <p className='content-body'>{review}</p>
         </div>
     );
 }

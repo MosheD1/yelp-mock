@@ -1,25 +1,40 @@
 import React from 'react';
-import './Signin.css';
 
 class Signin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            email: '',
             password: ''
         }
     }
 
-    onNameChange = (e) => {
-        this.setState({name: e.target.value});
+    onEmailChange = (e) => {
+        this.setState({email: e.target.value});
     }
 
     onPasswordChange = (e) => {
         this.setState({password: e.target.value});
     }
 
-    onSubmitForm = () => {
-        this.props.onRouteChange('home');
+    onSubmitForm = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:3001/signin', {
+            method: 'post',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password
+            })
+        })
+        .then(response => response.json())
+        .then(user => {
+            if(user.id) {
+                this.props.loadUser(user);
+                this.props.onRouteChange('home');
+            }
+        })
+        .catch(console.log);
     }
 
     render() {
@@ -28,14 +43,14 @@ class Signin extends React.Component {
                 <form className="form" autoComplete='off'>
                     <h1>Sign In</h1>
                     <fieldset>
-                        <label htmlFor='name'>Name:</label>
-                        <input onChange={this.onNameChange} id='name' name='name' type='text'/>
+                        <label htmlFor='email'>Email:</label>
+                        <input onChange={this.onEmailChange} id='email' name='email' type='email'/>
                     </fieldset>
                     <fieldset>
                         <label htmlFor='password'>Password:</label>
-                        <input onchange={this.onPasswordChange} id='password' name='password' type='password'/>
+                        <input onChange={this.onPasswordChange} id='password' name='password' type='password'/>
                     </fieldset>
-                    <button>Signin</button>
+                    <button onClick={this.onSubmitForm}>Signin</button>
                 </form>
             </div>
         );

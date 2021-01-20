@@ -5,9 +5,12 @@ import Register from './Components/Register/Register';
 import MainPage from './Components/MainPage/MainPage';
 
 const initialState = {
-  route: 'home',
+  route: 'signin',
   user: {
-    name: ''
+    id: '',
+    name: '',
+    email: '',
+    joined: ''
   }
 }
 
@@ -20,8 +23,18 @@ class App extends React.Component {
   onRouteChange = (name) => {
     if(name === 'signout') {
       this.setState(initialState);
+    } else {
+      this.setState({route: name});
     }
-    this.setState({route: name});
+  }
+
+  loadUser = (user) => {
+    this.setState({user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      joined: user.joined
+    }});
   }
 
   render() {
@@ -32,8 +45,8 @@ class App extends React.Component {
           this.state.route === 'home'
             ? <MainPage user={this.state.user} subRoute={this.state.subRoute} />
             :(this.state.route === 'signin'
-                ? <Signin onRouteChange={this.onRouteChange}/>
-                : <Register onRouteChange={this.onRouteChange} />
+                ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+                : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
             )  
         }
       </div>

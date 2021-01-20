@@ -2,13 +2,13 @@ import React from 'react';
 import Comment from '../Comment/Comment';
 import './CommentList.css';
 
-const CommentList = ({comments}) => {
+const CommentList = ({reviews}) => {
     return (
         <div className='comment-section'>
             <h3>Recommended Reviews</h3>
             {
-                comments.map((c, i) => {
-                    return <Comment key={i} user={c.name} comment={c.body}/>
+                reviews.map((c, i) => {
+                    return <Comment key={i} user={c.name} review={c.content}/>
                 })
             }
         </div>

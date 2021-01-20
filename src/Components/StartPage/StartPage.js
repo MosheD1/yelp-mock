@@ -16,7 +16,7 @@ class StartPage extends React.Component {
     }
 
     componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/comments?_start=0&_limit=10')
+    fetch('http://localhost:3001/businesses')
         .then(response => response.json())
         .then(data => this.setState({bussinessList: data}));
     }

@@ -48,6 +48,29 @@ class Business extends React.Component {
         this.setState({phoneNumber: e.target.value});
     }
 
+    onSubmitForm = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:3001/business', {
+            method: 'post',
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify({
+                name: this.state.name,
+                country: this.state.country,
+                city: this.state.city,
+                street: this.state.street,
+                picture: this.state.picture,
+                category: this.state.category,
+                description: this.state.description,
+                phoneNumber: this.state.phoneNumber
+            })
+        })
+        .then(response => response.json())
+        .then(business => {
+            this.props.loadBusiness(business);
+            this.props.onSubRoueChange('BusinessPage');
+        });
+    }
+
     render() {
         return (
             <div className='add-business'>
@@ -59,7 +82,7 @@ class Business extends React.Component {
                     </fieldset>
                     <fieldset>
                             <label htmlFor='country'>Country</label>
-                            <select onchange={this.onCountryChange} id="country" name="country">
+                            <select onChange={this.onCountryChange} id="country" name="country">
                                 <option value="Israel">Israel</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
@@ -312,11 +335,11 @@ class Business extends React.Component {
                     </fieldset>
                     <fieldset>
                             <label htmlFor='street'>Street</label>
-                            <input onchange={this.onStreetChange} id='street' name='stree' type='text'/>
+                            <input onChange={this.onStreetChange} id='street' name='stree' type='text'/>
                     </fieldset>
                     <fieldset>
                             <label htmlFor='category'>Category</label>
-                            <select onchange={this.onCategoryChange} id='category' name='category'>
+                            <select onChange={this.onCategoryChange} id='category' name='category'>
                                 <option value='Food'>Food</option>
                                 <option value='Pets'>Pets</option>
                                 <option value='Education'>Education</option>
@@ -329,7 +352,7 @@ class Business extends React.Component {
                     </fieldset>
                     <fieldset>
                             <label htmlFor='phoneNumber'>Phone Number</label>
-                            <input onchange={this.onPhoneNumberChange} id='phoneNumber' name='phoneNumber' type='text' placeholder='050-XXXXXXX'/>
+                            <input onChange={this.onPhoneNumberChange} id='phoneNumber' name='phoneNumber' type='text' placeholder='050-XXXXXXX'/>
                     </fieldset>
                     <fieldset>
                             <label htmlFor='picture'>Picture</label>
@@ -337,9 +360,9 @@ class Business extends React.Component {
                     </fieldset>
                     <fieldset>
                             <label htmlFor='description'>Description</label>
-                            <textarea onchange={this.onDescriptionChange} id='description' placeholder='This a place where you can go out and have fun...'></textarea>
+                            <textarea onChange={this.onDescriptionChange} id='description' placeholder='This a place where you can go out and have fun...'></textarea>
                     </fieldset>
-                    <button onClick={() => this.props.onSubRoueChange('main')}>Add</button>
+                    <button onClick={this.onSubmitForm}>Add</button>
                 </form>
             </div>
         );

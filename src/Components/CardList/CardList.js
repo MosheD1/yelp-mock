@@ -7,7 +7,7 @@ const CardList = ({bussinesList, getBussiness}) => {
         <div className='container card-list'>
             {
                 bussinesList.map((b, i) => {
-                    return <Card key={i} name={b.name} description={b.body} id={b.id} getBussiness={getBussiness}/>
+                    return <Card key={i} name={b.name} description={b.description} id={b.id} getBussiness={getBussiness}/>
                 })
             }
         </div>

@@ -22,8 +22,24 @@ class Register extends React.Component {
         this.setState({email: e.target.value});
     }
 
-    onSubmitForm = () => {
-        this.props.onRouteChange('home');
+    onSubmitForm = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:3001/register', {
+            method: 'post',
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify({
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password
+            })
+        })
+        .then(response => response.json())
+        .then(user => {
+            if(user.id) {
+                this.props.loadUser(user);
+                this.props.onRouteChange('home');
+            }
+        });
     }
 
     render() {
@@ -37,13 +53,13 @@ class Register extends React.Component {
                     </fieldset>
                     <fieldset>
                         <label htmlFor='email'>Email:</label>
-                        <input onchange={this.onEmailChange} id='email' name='email' type='email'/>
+                        <input onChange={this.onEmailChange} id='email' name='email' type='email'/>
                     </fieldset>
                     <fieldset>
                         <label htmlFor='password'>Password:</label>
-                        <input onchange={this.onPasswordChange} id='password' name='password' type='password'/>
+                        <input onChange={this.onPasswordChange} id='password' name='password' type='password'/>
                     </fieldset>
-                    <button>Signin</button>
+                    <button onClick={this.onSubmitForm}>Signin</button>
                 </form>
             </div>
         );

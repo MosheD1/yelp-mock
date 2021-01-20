@@ -18,15 +18,30 @@ class ReviewPage extends React.Component {
         this.setState({review: e.target.value});
     }
 
-    onClickButton = () => {
-        this.props.onSubRoueChange('BusinessPage');
+    onSubmitReview = (e) => {
+        e.preventDefault();
+        const { id } = this.props.business;
+        fetch(`http://localhost:3001/review/${id}`, {
+            method: 'post',
+            headers: { 'content-type':'application/json'},
+            body: JSON.stringify({
+                content: this.state.review,
+                rating: this.state.rating,
+                name: this.props.user.name
+            })
+        })
+        .then(response => response.json())
+        .then(reviews => {
+            this.props.loadReviews(reviews);
+            this.props.onSubRoueChange('BusinessPage');
+        });
     }
 
     render() {
         return(
             <div >
                 <div className='review-page'>
-                    <h2 className='tc'>{this.props.businessName}</h2>
+                    <h2 className='tc'>{this.props.business.name}</h2>
                     <form>
                         <fieldset className='widget'>
                             <div className='rating'>
@@ -40,7 +55,7 @@ class ReviewPage extends React.Component {
                             </div>
                             <textarea onChange={this.onReviewChange} placeholder='It’s amazing that they’ve added delivery due to COVID'></textarea>
                         </fieldset>
-                        <button onClick={this.onClickButton}>Post Review</button>
+                        <button onClick={this.onSubmitReview}>Post Review</button>
                     </form>
                 </div>
             </div>
