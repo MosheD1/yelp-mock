@@ -36,3 +36,8 @@
     letter-spacing: 2px;
     margin-bottom: 4rem;
 }
+
+.return-button {
+    width: 9%;
+    margin-right: 1rem;
+}

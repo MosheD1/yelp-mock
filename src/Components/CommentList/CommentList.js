@@ -8,7 +8,7 @@ const CommentList = ({reviews}) => {
             <h3>Recommended Reviews</h3>
             {
                 reviews.map((c, i) => {
-                    return <Comment key={i} user={c.name} review={c.content}/>
+                    return <Comment key={i} user={c.name} review={c.content} rating={c.rating}/>
                 })
             }
         </div>

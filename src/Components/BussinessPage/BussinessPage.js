@@ -12,6 +12,7 @@ const BussinessPage = ({business, reviews, onSubRoueChange}) => {
                     </div>
                     <h1>{business.name}</h1>
                     <p className='description'>{business.description}</p>
+                    <button className='return-button' onClick={() => onSubRoueChange('main')}>Back</button>
                     <button onClick={() => onSubRoueChange('Review')}>Write A Review</button>
                 </div>
                 <CommentList reviews={reviews}/>
