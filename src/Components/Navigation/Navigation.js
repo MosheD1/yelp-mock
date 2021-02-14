@@ -6,8 +6,6 @@ const Navigation = ({route, onRouteChange}) => {
     {
         return (
             <nav>
-                <a href='#a'>Contact</a>
-                <a href='#a'>About Us</a>
                 <a href='#a' onClick={() => onRouteChange('signout')}>Log Out</a>
             </nav>
         );

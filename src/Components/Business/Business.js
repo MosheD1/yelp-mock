@@ -6,11 +6,11 @@ class Business extends React.Component {
         super(props);
         this.state = {
             name: '',
-            country: '',
+            country: 'Israel',
             city: '',
             street: '',
             picture: '',
-            category: '',
+            category: 'Food',
             description: '',
             phoneNumber: ''
         }
@@ -66,8 +66,10 @@ class Business extends React.Component {
         })
         .then(response => response.json())
         .then(business => {
-            this.props.loadBusiness(business);
-            this.props.onSubRoueChange('BusinessPage');
+            if(business.id) {
+                this.props.loadBusiness(business);
+                this.props.onSubRoueChange('BusinessPage');
+            }
         });
     }
 

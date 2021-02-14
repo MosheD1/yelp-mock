@@ -27,7 +27,7 @@ class MainPage extends React.Component {
     }
 
     onSubRoueChange = (name) => {
-        if(name == 'main') {
+        if(name === 'main') {
             this.setState(mainPageState);    
         } else {
             this.setState({subRoute: name});

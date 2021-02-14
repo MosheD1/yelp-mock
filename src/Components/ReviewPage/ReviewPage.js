@@ -26,14 +26,17 @@ class ReviewPage extends React.Component {
             headers: { 'content-type':'application/json'},
             body: JSON.stringify({
                 content: this.state.review,
-                rating: this.state.rating,
+                rating: Number(this.state.rating),
                 name: this.props.user.name
             })
         })
         .then(response => response.json())
         .then(reviews => {
-            this.props.loadReviews(reviews);
-            this.props.onSubRoueChange('BusinessPage');
+            console.log(reviews);
+            if(reviews[0].id) {
+                this.props.loadReviews(reviews);
+                this.props.onSubRoueChange('BusinessPage');
+            }
         });
     }
 
