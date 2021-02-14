@@ -5,7 +5,7 @@ class ReviewPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            rating: '',
+            rating: '0',
             review: ''
         }
     }
@@ -56,7 +56,7 @@ class ReviewPage extends React.Component {
                                     <input onClick={this.onRateClick} type="radio" className="fa fa-star" name="rating" value="1" />
                                 </span>
                             </div>
-                            <textarea onChange={this.onReviewChange} placeholder='It’s amazing that they’ve added delivery due to COVID'></textarea>
+                            <textarea onChange={this.onReviewChange} placeholder='It’s amazing that they’ve added delivery due to COVID' required></textarea>
                         </fieldset>
                         <button onClick={this.onSubmitReview}>Post Review</button>
                     </form>

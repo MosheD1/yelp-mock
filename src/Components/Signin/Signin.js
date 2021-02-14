@@ -44,11 +44,11 @@ class Signin extends React.Component {
                     <h1>Sign In</h1>
                     <fieldset>
                         <label htmlFor='email'>Email:</label>
-                        <input onChange={this.onEmailChange} id='email' name='email' type='email'/>
+                        <input onChange={this.onEmailChange} id='email' name='email' type='email' required/>
                     </fieldset>
                     <fieldset>
                         <label htmlFor='password'>Password:</label>
-                        <input onChange={this.onPasswordChange} id='password' name='password' type='password'/>
+                        <input onChange={this.onPasswordChange} id='password' name='password' type='password' required/>
                     </fieldset>
                     <button onClick={this.onSubmitForm}>Signin</button>
                 </form>

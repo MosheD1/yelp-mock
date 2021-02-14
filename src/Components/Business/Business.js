@@ -80,7 +80,7 @@ class Business extends React.Component {
                 <form className='form'>
                     <fieldset>
                             <label htmlFor='name'>Name</label>
-                            <input onChange={this.onNameChange} id='name' name='name' type='text'/>
+                            <input onChange={this.onNameChange} id='name' name='name' type='text' required/>
                     </fieldset>
                     <fieldset>
                             <label htmlFor='country'>Country</label>
@@ -354,11 +354,11 @@ class Business extends React.Component {
                     </fieldset>
                     <fieldset>
                             <label htmlFor='phoneNumber'>Phone Number</label>
-                            <input onChange={this.onPhoneNumberChange} id='phoneNumber' name='phoneNumber' type='text' placeholder='050-XXXXXXX'/>
+                            <input onChange={this.onPhoneNumberChange} id='phoneNumber' name='phoneNumber' type='text'/>
                     </fieldset>
                     <fieldset>
                             <label htmlFor='picture'>Picture</label>
-                            <input onChange={this.onPictureChange} id='picture' name='picture' type='text' placeholder='https://www.'/>
+                            <input onChange={this.onPictureChange} id='picture' name='picture' type='text' placeholder='https://www.' required/>
                     </fieldset>
                     <fieldset>
                             <label htmlFor='description'>Description</label>

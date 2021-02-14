@@ -49,17 +49,17 @@ class Register extends React.Component {
                     <h1>Register</h1>
                     <fieldset>
                         <label htmlFor='name'>Name:</label>
-                        <input onChange={this.onNameChange} id='name' name='name' type='text'/>
+                        <input onChange={this.onNameChange} id='name' name='name' type='text' required/>
                     </fieldset>
                     <fieldset>
                         <label htmlFor='email'>Email:</label>
-                        <input onChange={this.onEmailChange} id='email' name='email' type='email'/>
+                        <input onChange={this.onEmailChange} id='email' name='email' type='email' required/>
                     </fieldset>
                     <fieldset>
                         <label htmlFor='password'>Password:</label>
-                        <input onChange={this.onPasswordChange} id='password' name='password' type='password'/>
+                        <input onChange={this.onPasswordChange} id='password' name='password' type='password' required/>
                     </fieldset>
-                    <button onClick={this.onSubmitForm}>Signin</button>
+                    <button onClick={this.onSubmitForm}>Register</button>
                 </form>
             </div>
         );
